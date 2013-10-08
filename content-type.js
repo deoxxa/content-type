@@ -64,7 +64,7 @@ MediaType.prototype.toString = function toString() {
   var str = this.type;
 
   if (typeof this.q !== "undefined") {
-    str += ";q=" + this.q;
+    str += "; q=" + this.q;
   }
 
   var params = Object.keys(this.params).sort();
@@ -72,7 +72,7 @@ MediaType.prototype.toString = function toString() {
   for (var i=0;i<params.length;++i) {
     var n = params[i];
 
-    str += ";" + n + '="' + this.params[n].replace(/["\\]/g, function(a) {
+    str += "; " + n + '="' + this.params[n].replace(/["\\]/g, function(a) {
       return "\\" + a;
     }) + '"';
   }
