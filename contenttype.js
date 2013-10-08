@@ -72,15 +72,9 @@ MediaType.prototype.toString = function toString() {
   for (var i=0;i<params.length;++i) {
     var n = params[i];
 
-    str += ";" + n + "=";
-
-    if (this.params[n].match(/["=;<>\[\]\(\) ,\-]/)) {
-      str += '"' + this.params[n].replace(/["\\]/g, function(a) {
-        return "\\" + a;
-      }) + '"';
-    } else {
-      str += this.params[n];
-    }
+    str += ";" + n + '="' + this.params[n].replace(/["\\]/g, function(a) {
+      return "\\" + a;
+    }) + '"';
   }
 
   return str;
